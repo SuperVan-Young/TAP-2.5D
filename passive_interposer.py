@@ -210,7 +210,11 @@ class PassiveInterposer(System_25D):
 		return (max(list(map(float,outlist[3::2])))-273.15)
 
 	def clean_hotspot(self, filename):
-		os.system('rm ' + self.path + filename + '{*.flp,*.lcf,*.ptrace,*.steady}')
+		# os.system('rm ' + self.path + filename + '{*.flp,*.lcf,*.ptrace,*.steady}')
+		os.system('rm ' + self.path + filename + '*.flp')
+		os.system('rm ' + self.path + filename + '*.lcf')
+		os.system('rm ' + self.path + filename + '*.ptrace')
+		os.system('rm ' + self.path + filename + '*.steady')
 
 	def compute_ubump_overhead(self):
 		# print (self.link_type)
