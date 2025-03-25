@@ -68,7 +68,7 @@ def read_floorplan(floorplan_file, n_row, n_col):
 
 	return units
 
-def plot_heatmap_with_chiplets(heatmap, floorplan):
+def plot_heatmap_with_chiplets(heatmap, floorplan, tmin=45, tmax=125):
 	"""
 	Plot the heatmap and overlay the chiplets' outlines
 	"""
@@ -78,7 +78,7 @@ def plot_heatmap_with_chiplets(heatmap, floorplan):
 	fig, ax = plt.subplots(figsize=(10, 8))
 
 	# Plot the heatmap
-	im = ax.imshow(heatmap, cmap='plasma', origin='lower', extent=[0, n_col, 0, n_row])
+	im = ax.imshow(heatmap, cmap='plasma', origin='lower', extent=[0, n_col, 0, n_row], vmin=tmin, vmax=tmax)
 	plt.colorbar(im, label='Temperature (°C)')
 
 	# Overlay the chiplets' outlines
