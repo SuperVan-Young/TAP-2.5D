@@ -100,7 +100,7 @@ def plot_heatmap_with_chiplets(heatmap, floorplan):
 	# Set labels and title
 	ax.set_xlabel('X Position')
 	ax.set_ylabel('Y Position')
-	ax.set_title('Heatmap with Chiplet Outlines')
+	ax.set_title('Heatmap with Chiplet Outlines (T_max = %.2f°C)' % np.max(heatmap))
 
 
 def main(output_dir, n_row=64, n_col=64):
