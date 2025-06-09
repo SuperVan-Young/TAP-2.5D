@@ -2,7 +2,7 @@ import configparser
 import getopt
 import os, sys, time
 from passive_interposer import PassiveInterposer
-import routing
+# import routing
 
 def get_intp_types():
 	return ['passive']
@@ -154,9 +154,9 @@ if __name__ == "__main__":
 	os.system('convert '+system.path + filename + '.svg '+system.path + filename + '.pdf')
 	print ('temperature =', round(temp, 2), 'C,    takes', round(time.time()- start_time, 2), 'seconds')
 
-	start_time = time.time()
-	length = routing.solve_Cplex(system)
-	print ('average wirelength =', round(length, 2), 'mm/wire,    takes', round(time.time() - start_time, 2), 'seconds')
+	# start_time = time.time()
+	# length = routing.solve_Cplex(system)
+	# print ('average wirelength =', round(length, 2), 'mm/wire,    takes', round(time.time() - start_time, 2), 'seconds')
 	with open (system.path + filename +  '.txt', 'w') as OUTPUT:
 		OUTPUT.write(str(temp)+'\n')
-		OUTPUT.write(str(length)+'\n')
+		# OUTPUT.write(str(length)+'\n')
