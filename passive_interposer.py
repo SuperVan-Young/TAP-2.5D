@@ -211,9 +211,12 @@ class PassiveInterposer(System_25D):
 			"-steady_file",self.path+filename+".steady",
 			"-grid_steady_file",self.path+filename+".grid.steady",
 			"-model_type","grid",
-			"-detailed_3D","on",
-			"-grid_layer_file",self.path+filename+"layers.lcf"], 
-			stdout=subprocess.PIPE, stderr = subprocess.PIPE)
+			# if we don't run 3D simulation, everything is fine
+			# "-detailed_3D","on",
+			# "-grid_layer_file",self.path+filename+"layers.lcf"
+			], 
+			stdout=subprocess.PIPE, stderr = subprocess.PIPE,
+		)
 		stdout, stderr = proc.communicate()
 		outlist = stdout.split()
 		return (max(list(map(float,outlist[3::2])))-273.15)
